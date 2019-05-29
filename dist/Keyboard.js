@@ -47,9 +47,6 @@ var VirtualKeyboard = function (_Component) {
       if (_this.props.debug) {
         console.log("Change", input);
       }
-      _this.setState({
-        value: input
-      });
       _this.props.onChange(input);
     };
 
@@ -64,11 +61,6 @@ var VirtualKeyboard = function (_Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var _this2 = this;
-
-      // Set Value to Input Element on Accept
-      this.setState({
-        value: this.props.value
-      });
 
       this.props.options.accepted = function (event, keyboard, el) {
         _this2.handleChange('', el.value);
@@ -182,9 +174,9 @@ var VirtualKeyboard = function (_Component) {
 
       if (this.props.options.type === 'textarea') element = _react2.default.createElement('textarea', _extends({ ref: function ref(node) {
           return _this3.keyboardRef = node;
-        }, value: this.state.value, onChange: this.handleChange }, other));else element = _react2.default.createElement('input', _extends({ ref: function ref(node) {
+        }, value: value, onChange: this.handleChange }, other));else element = _react2.default.createElement('input', _extends({ ref: function ref(node) {
           return _this3.keyboardRef = node;
-        }, value: this.state.value, onChange: this.handleChange }, other));
+        }, value: value, onChange: this.handleChange }, other));
 
       return _react2.default.createElement(
         'div',
